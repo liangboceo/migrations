@@ -33,7 +33,7 @@ class NeteaseApplication extends Application
      */
     public function __construct()
     {
-        parent::__construct('Netease by CakePHP - https://Netease.org.');
+        parent::__construct('=====================database migrate============================');
 
         $this->addCommands([
             new Init(),
