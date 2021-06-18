@@ -1,0 +1,17 @@
+<?php
+$namespaceDefinition
+use $useClassName;
+
+final class $className extends $baseClassName
+{
+    /**
+     * Change Method.
+     * Write your reversible migrations using this method.
+     * Remember to call "create()" or "update()" and NOT "save()" when working
+     * with the Table class.
+     */
+    public function change()
+    {
+
+    }
+}
