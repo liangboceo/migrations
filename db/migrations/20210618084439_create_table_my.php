@@ -1,6 +1,6 @@
 <?php
 
-use Phinx\Migration\AbstractMigration;
+use Netease\Migration\AbstractMigration;
 
 final class CreateTableMy extends AbstractMigration
 {

@@ -1,11 +1,11 @@
 {
     "name": "jackson/migrations",
-    "description": "Phinx makes it ridiculously easy to manage the database migrations for your PHP app.",
-    "keywords": ["phinx", "migrations", "database", "db", "database migrations"],
+    "description": "Netease makes it ridiculously easy to manage the database migrations for your PHP app.",
+    "keywords": ["Netease", "migrations", "database", "db", "database migrations"],
     "license": "Apache-2.0",
     "autoload": {
         "psr-4": {
-            "Phinx\\": "src/Phinx/"
+            "Netease\\": "src/Netease/"
         }
     },
     "authors": [
@@ -25,5 +25,5 @@
         "ext-pdo": "*",
         "symfony/yaml": "^3.4|^4.0|^5.0"
     },
-    "bin": ["bin/phinx"]
+    "bin": ["bin/netease"]
 }
