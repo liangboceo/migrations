@@ -3,7 +3,7 @@ paths:
     seeds: 'db/seeds'
 
 environments:
-    default_migration_table: Neteaselog
+    default_migration_table: netease_migrate_log
     default_environment: development
     production:
         adapter: mysql
