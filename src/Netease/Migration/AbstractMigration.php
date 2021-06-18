@@ -206,13 +206,6 @@ abstract class AbstractMigration implements MigrationInterface
         return $this->getAdapter()->query($sql);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getQueryBuilder()
-    {
-        return $this->getAdapter()->getQueryBuilder();
-    }
 
     /**
      * @inheritDoc

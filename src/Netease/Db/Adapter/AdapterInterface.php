@@ -276,12 +276,6 @@ interface AdapterInterface
      */
     public function executeActions(Table $table, array $actions);
 
-    /**
-     * Returns a new Query object
-     *
-     * @return \Cake\Database\Query
-     */
-    public function getQueryBuilder();
 
     /**
      * Executes a SQL statement.

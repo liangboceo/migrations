@@ -7,8 +7,6 @@
 
 namespace Netease\Db\Adapter;
 
-use Cake\Database\Connection;
-use Cake\Database\Driver\Postgres as PostgresDriver;
 use InvalidArgumentException;
 use PDO;
 use PDOException;
@@ -1486,25 +1484,6 @@ class PostgresAdapter extends PdoAdapter
         return (bool)$value ? 'TRUE' : 'FALSE';
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getDecoratedConnection()
-    {
-        $options = $this->getOptions();
-        $options = [
-            'username' => $options['user'] ?? null,
-            'password' => $options['pass'] ?? null,
-            'database' => $options['name'],
-            'quoteIdentifiers' => true,
-        ] + $options;
-
-        $driver = new PostgresDriver($options);
-
-        $driver->setConnection($this->connection);
-
-        return new Connection(['driver' => $driver] + $options);
-    }
 
     /**
      * Sets search path of schemas to look through for a table

@@ -149,17 +149,6 @@ interface MigrationInterface
      */
     public function query($sql);
 
-    /**
-     * Returns a new Query object that can be used to build complex SELECT, UPDATE, INSERT or DELETE
-     * queries and execute them against the current database.
-     *
-     * Queries executed through the query builder are always sent to the database, regardless of the
-     * the dry-run settings.
-     *
-     * @see https://api.cakephp.org/3.6/class-Cake.Database.Query.html
-     * @return \Cake\Database\Query
-     */
-    public function getQueryBuilder();
 
     /**
      * Executes a query and returns only one row as an array.

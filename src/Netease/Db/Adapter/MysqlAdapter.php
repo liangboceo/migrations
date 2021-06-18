@@ -7,8 +7,6 @@
 
 namespace Netease\Db\Adapter;
 
-use Cake\Database\Connection;
-use Cake\Database\Driver\Mysql as MysqlDriver;
 use InvalidArgumentException;
 use PDO;
 use Netease\Db\Table\Column;
@@ -1463,24 +1461,5 @@ class MysqlAdapter extends PdoAdapter
     public function getColumnTypes()
     {
         return array_merge(parent::getColumnTypes(), static::$specificColumnTypes);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getDecoratedConnection()
-    {
-        $options = $this->getOptions();
-        $options = [
-            'username' => $options['user'] ?? null,
-            'password' => $options['pass'] ?? null,
-            'database' => $options['name'],
-            'quoteIdentifiers' => true,
-        ] + $options;
-
-        $driver = new MysqlDriver($options);
-        $driver->setConnection($this->connection);
-
-        return new Connection(['driver' => $driver] + $options);
     }
 }

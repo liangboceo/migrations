@@ -8,8 +8,6 @@
 namespace Netease\Db\Adapter;
 
 use BadMethodCallException;
-use Cake\Database\Connection;
-use Cake\Database\Driver\Sqlite as SqliteDriver;
 use InvalidArgumentException;
 use PDO;
 use PDOException;
@@ -1608,31 +1606,5 @@ PCRE_PATTERN;
         }
 
         return $def;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getDecoratedConnection()
-    {
-        $options = $this->getOptions();
-        $options['quoteIdentifiers'] = true;
-
-        if (!empty($options['name'])) {
-            $options['database'] = $options['name'];
-
-            if (file_exists($options['name'] . $this->suffix)) {
-                $options['database'] = $options['name'] . $this->suffix;
-            }
-        }
-
-        if ($this->connection === null) {
-            throw new RuntimeException('You need to connect first.');
-        }
-
-        $driver = new SqliteDriver($options);
-        $driver->setConnection($this->connection);
-
-        return new Connection(['driver' => $driver] + $options);
     }
 }
