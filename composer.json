@@ -1,0 +1,17 @@
+{
+    "name": "jackson/diva-tools",
+    "description": "diva",
+    "license": "Apache-2.0",
+    "autoload": {
+        "psr-4": {
+            "Phinx\\": "phinx/src/Phinx",
+            "Jackson\\DivaTools\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jackson",
+            "email": "jackson.liang@corp.netease.com"
+        }
+    ]
+}
