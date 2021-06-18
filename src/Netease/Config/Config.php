@@ -195,14 +195,14 @@ class Config implements ConfigInterface, NamespaceAwareInterface
     public function getDefaultEnvironment()
     {
         // The $Netease_ENVIRONMENT variable overrides all other default settings
-        $env = getenv('Netease_ENVIRONMENT');
+        $env = getenv('NETEASE__ENVIRONMENT');
         if (!empty($env)) {
             if ($this->hasEnvironment($env)) {
                 return $env;
             }
 
             throw new RuntimeException(sprintf(
-                'The environment configuration (read from $Netease_ENVIRONMENT) for \'%s\' is missing',
+                'The environment configuration (read from $NETEASE__ENVIRONMENT) for \'%s\' is missing',
                 $env
             ));
         }
@@ -425,14 +425,14 @@ class Config implements ConfigInterface, NamespaceAwareInterface
         // so we search through both
         $tokens = [];
         foreach (array_merge($_ENV, $_SERVER) as $varname => $varvalue) {
-            if (strpos($varname, 'Netease_') === 0) {
+            if (strpos($varname, 'NETEASE_') === 0) {
                 $tokens['%%' . $varname . '%%'] = $varvalue;
             }
         }
 
         // Netease defined tokens (override env tokens)
-        $tokens['%%Netease_CONFIG_PATH%%'] = $this->getConfigFilePath();
-        $tokens['%%Netease_CONFIG_DIR%%'] = dirname($this->getConfigFilePath());
+        $tokens['%%NETEASE_CONFIG_PATH%%'] = $this->getConfigFilePath();
+        $tokens['%%NETEASE_CONFIG_DIR%%'] = dirname($this->getConfigFilePath());
 
         // Recurse the array and replace tokens
         return $this->recurseArrayForTokens($arr, $tokens);
